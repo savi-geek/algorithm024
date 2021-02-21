@@ -11,6 +11,13 @@ import java.util.List;
  */
 public class PostNTree {
 
+    /**
+     * 迭代
+     * 时间复杂度L:O(M)，其中 M 是 N 叉树中的节点个数
+     * 空间复杂度：O(M)
+     * @param root
+     * @return
+     */
     public List<Integer> postorder(Node root) {
         LinkedList<Integer> res = new LinkedList<>();
         if(root == null){

@@ -14,7 +14,10 @@ public class PreorderNTree {
      */
     public List<Integer> preorder1(Node root) {
         List<Integer> list = new ArrayList<>();
-        getChildren(root, list);
+        if(root != null){
+            list.add(root.val);
+            getChildren(root, list);
+        }
         return list;
     }
 

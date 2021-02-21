@@ -53,7 +53,8 @@ public class Anagram {
 
     /**
      * 哈希
-     *
+     * 时间复杂度O(n)
+     * 空间复杂度O(26)
      * @param s
      * @param t
      * @return

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class Subsets {
 
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> subSet = new ArrayList<>();
-        dfs(0, subSet, nums, res);
+        dfs2(0, subSet, nums, res);
         return res;
     }
 
@@ -32,5 +33,23 @@ public class Subsets {
         dfs(n+1, subSet, nums, res);
     }
 
+    private void dfs2(int n, List<Integer> subSet, int[] nums, List<List<Integer>> res) {
+        res.add(new ArrayList<>(subSet));
+        for(int i=n; i< nums.length; i++){
+            System.out.println("i====="+i);
+            subSet.add(nums[i]);
+            System.out.println("subset before dfs:"+ Arrays.toString(subSet.toArray()));
+            dfs2(i+1, subSet, nums, res);
+            System.out.println("subset after dfs:"+ Arrays.toString(subSet.toArray()));
+            subSet.remove(subSet.size()-1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Subsets subsets = new Subsets();
+        int[] nums = {1,2,3};
+        List<List<Integer>> res = subsets.subsets(nums);
+        System.out.println("res:"+Arrays.toString(res.toArray()));
+    }
 
 }
